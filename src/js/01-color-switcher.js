@@ -19,10 +19,8 @@
  function onStartBtn() {
 
 
-     if (refs.startBtn.disabled) {
-         return;
-     }
      refs.startBtn.disabled = true;
+     refs.stopBtn.disabled = false;
 
 
      hexColorId = setInterval(() => {
@@ -37,9 +35,8 @@
 
  function onStopBtn() {
      clearInterval(hexColorId);
-     if (refs.startBtn.disabled) {
-         refs.startBtn.disabled = false;
-     }
+     refs.startBtn.disabled = false;
+     refs.stopBtn.disabled = true;
 
 
 
