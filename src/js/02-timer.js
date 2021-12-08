@@ -45,8 +45,36 @@ flatpickr('#datetime-picker', options);
 refs.button.addEventListener('click', onClickTimer);
 
 
+
+const startTime = Date.now();
+
+
 function onClickTimer() {
     setInterval(() => {
+const currentTime = Date.now();
+const deltaTime = startTime - currentTime;
+const  time = convertMs(deltaTime);
+updateTimer(time);
+
+        
+    },1000); 
+}
+
+function updateTimer({ days, hours, minutes, seconds }) {
+    refs.days.textContent = `${days}`;
+    refs.hours.textContent = `${hours}`;
+    refs.minutes.textContent = `${minutes}`;
+    refs.seconds.textContent = `${seconds}`;
+   
+}
+
+
+
+function addLeadingZero(value){
+    return String(value).padStart(2, '0');
+}
+
+
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
@@ -66,5 +94,8 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-    },1000); 
-}
+
+
+
+
+
