@@ -6,3 +6,10 @@ function createPromise(position, delay) {
     // Reject
   }
 }
+
+
+
+createPromise(2, 1500)
+  .then(({ position, delay }) => {
+    console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+  })
