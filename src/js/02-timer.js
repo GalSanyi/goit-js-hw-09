@@ -6,7 +6,7 @@ import "flatpickr/dist/flatpickr.min.css";
 
 
 const refs = {
-    inputData: document.querySelector('#datetime-picker'),
+    input: document.querySelector('#datetime-picker'),
     startBtn: document.querySelector('button[data-start]'),
     days: document.querySelector('[data-days]'),
     hours: document.querySelector('[data-hours]'),
@@ -32,8 +32,8 @@ const options = {
             window.alert("Please choose a date in the future")
         }
         refs.startBtn.removeAttribute('disabled');
+        // refs.input.setAttribute('disabled', true);
 
-        refs.inputData.setAttribute('disabled', true);
         refs.startBtn.addEventListener('click', () => {
             function timer() {
                 let currentData = new Date();
